@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.socket.io/4.8.3/socket.io.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Social Media Dashboard</h1>
+        <p>Manage accounts, refresh metrics, export CSV data.</p>
+      </header>
+
+      <section class="card card-form">
+        <h2>Add New Account</h2>
+        <form id="addAccountForm">
+          <div class="field">
+            <label for="platform">Platform</label>
+            <select id="platform" required>
+              <option value="Instagram">Instagram</option>
+              <option value="Twitter">Twitter</option>
+              <option value="Facebook">Facebook</option>
+              <option value="TikTok">TikTok</option>
+              <option value="LinkedIn">LinkedIn</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              type="text"
+              placeholder="e.g. @john_doe"
+              required
+            />
+          </div>
+          <button type="submit" class="primary">Create Account</button>
+          <button type="button" id="refreshBtn">Refresh Dashboard</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Accounts Dashboard</h2>
+        <div id="message" class="message"></div>
+        <table id="accountsTable" class="table">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Username</th>
+              <th>Followers</th>
+              <th>Likes</th>
+              <th>Posts</th>
+              <th>Last Updated</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
